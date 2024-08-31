@@ -2,71 +2,74 @@ body {
   font-family: 'Cabin', sans-serif;
   text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3);
   color: #fff;
-  background: url("../images/background.webp") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  position: relative;
+  overflow: auto;
+  overflow-x: hidden;
 }
-.overlay {
+
+body::before {
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Darker overlay for contrast */
-  backdrop-filter: blur(4px); /* Blur effect */
-  z-index: 1; /* Ensure overlay is above background */
+  background: url("../images/background.webp") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  filter: blur(6px); /* Adjust the blur value as needed */
+  -webkit-filter: blur(6px); /* For older WebKit browsers */
+  z-index: -1; /* Ensure background is behind content */
 }
 
 .content {
   position: relative;
   z-index: 2; /* Ensure content is above overlay */
   color: white;
-  text-align: center;
+  text-align: center; 
+}
+
+/* Rest of your CSS remains the same */
+
+h1, h2, h3, h4, h5 {
+  color: #ffffff;
 }
 
 h1 {
-  color: #ffffff;
   font-weight: 700;
   font-size: 56px;
 }
 
 h2 {
-  color: #ffffff;
   font-style: normal;
   font-size: 36px;
   letter-spacing: 1px;
 }
 
 h3 {
-  color: #ffffff;
   font-style: normal;
   font-size: 24px;
 }
 
 h4 {
-  color: #ffffff;
   font-weight: 700;
   font-size: 18px;
   letter-spacing: 1px;
 }
 
 h5 {
-  color: #ffffff;
-  padding: 10px; 
+  padding: 10px;
   text-align: center;
   font-size: 14px;
   letter-spacing: 1px;
 }
 
-/* 
-Loading section
-*/
 .se-pre-con {
   position: fixed;
-  left: 0px;
-  top: 0px;
+  left: 0;
+  top: 0;
   width: 100%;
   height: 100%;
   z-index: 9999;
@@ -84,22 +87,16 @@ Loading section
   display: block;
 }
 
-/*
-Header Section
-*/
 .box-spacing {
-  margin: 20px 0px 20px 0px;
+  margin: 20px 0;
 }
 
-/*
-countdown timer section
-*/
 #counter {
   color: #ffffff;
 }
 
 #counter_wrapper {
-  margin: 1.3em 0px 1em;
+  margin: 1.3em 0 1em;
 }
 
 .countdown-period {
@@ -118,11 +115,11 @@ countdown timer section
 }
 
 .countdown-section:last-child {
-  margin-right: 0px;
+  margin-right: 0;
 }
 
 .subscribe-form-wrapper {
-  margin: 30px 0px 20px 0px;
+  margin: 30px 0 20px;
 }
 
 .subscribe-form-wrapper button {
@@ -141,7 +138,6 @@ countdown timer section
 .subscribe-form-wrapper button:hover,
 .subscribe-form-wrapper button:focus,
 .subscribe-form-wrapper button:active:focus {
-  outline: none;
   color: #ffffff;
   background-color: #FF7E00;
 }
@@ -153,25 +149,19 @@ countdown timer section
 
 .subscribe-form-wrapper input,
 .subscribe-form-wrapper button {
-  -webkit-box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.3);
   box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.3);
 }
 
 @media (min-width: 768px) {
   .form-subs-email {
-    margin-left: 10px;
-    margin-right: 10px;
-    width:100% !important;
+    margin: 10px;
+    width: 100% !important;
   }
 }
 
-/*
- Social media section
- */
 .social-media-wrapper {
-  margin-top: 30px;
-  margin-bottom: 80px;
+  margin-top: 110px;
+  margin-bottom: 28px;
   font-size: 25px;
 }
 
@@ -182,47 +172,32 @@ countdown timer section
 }
 
 .social-media-wrapper a:last-child {
-  margin-right: 0px;
+  margin-right: 0;
 }
 
-/*
-Footer and copyright section
-*/
 .copyright {
-  margin: 30px 0px 20px 0px;
+  margin: 30px 0 20px;
   color: #ffffff;
 }
 
-
-
-/*--- FORMS ---*/
-/*
-This is the bit you need.
-*/
-.subscribe-form-wrapper label{
-  position:absolute;
-  left:-9999px;
+.subscribe-form-wrapper label {
+  position: absolute;
+  left: -9999px;
 }
+
 .subscribe-form-wrapper input,
-.subscribe-form-wrapper textarea{
-  font:inherit;
-  resize:none;
-height: 38px;
-width: 234px !important;
+.subscribe-form-wrapper textarea {
+  font: inherit;
+  resize: none;
+  height: 38px;
+  width: 234px !important;
 }
 
-
-
-
-
-/*--- THE MAGIC ---*/
-/*
-This is the best bit!
-*/
-[placeholder]{
-  cursor:pointer;
+[placeholder] {
+  cursor: pointer;
 }
+
 [placeholder]:active,
-[placeholder]:focus{
-  cursor:text;
+[placeholder]:focus {
+  cursor: text;
 }
